@@ -15,7 +15,7 @@ Expires: 14 August 2021                                        C.A. Wood
 
 
                    Discovery of Designated Resolvers
-                       draft-ietf-add-ddr-latest
+                         draft-ietf-add-ddr-00
 
 Abstract
 
