@@ -5,13 +5,13 @@
 ADD                                                             T. Pauly
 Internet-Draft                                                E. Kinnear
 Intended status: Standards Track                              Apple Inc.
-Expires: 14 August 2021                                        C.A. Wood
+Expires: 16 August 2021                                        C.A. Wood
                                                               Cloudflare
                                                               P. McManus
                                                                   Fastly
                                                                T. Jensen
                                                                Microsoft
-                                                        10 February 2021
+                                                        12 February 2021
 
 
                    Discovery of Designated Resolvers
@@ -51,7 +51,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 14 August 2021.
+   This Internet-Draft will expire on 16 August 2021.
 
 Copyright Notice
 
@@ -248,7 +248,7 @@ Table of Contents
 5.  Discovery Using Resolver Names
 
    A DNS client that already knows the name of an Encrypted Resolver can
-   use DEER to discover details about all supported encrypted DNS
+   use DDR to discover details about all supported encrypted DNS
    protocols.  This situation can arise if a client has been configured
    to use a given Encrypted Resolver, or if a network provisioning
    protocol (such as DHCP or IPv6 Router Advertisements) provides a name
@@ -291,7 +291,7 @@ Table of Contents
 
 6.  Deployment Considerations
 
-   Resolver deployments that support DEER are advised to consider the
+   Resolver deployments that support DDR are advised to consider the
    following points.
 
 6.1.  Caching Forwarders
