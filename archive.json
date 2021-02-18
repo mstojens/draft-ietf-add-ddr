@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2021-02-16T00:03:46.688773+00:00",
+  "timestamp": "2021-02-18T00:04:04.825176+00:00",
   "repo": "ietf-wg-add/draft-ietf-add-ddr",
   "labels": [
     {
@@ -49,7 +49,44 @@
       "color": "d876e3"
     }
   ],
-  "issues": [],
+  "issues": [
+    {
+      "number": 2,
+      "id": "MDU6SXNzdWU4MTAyOTI2MDU=",
+      "title": "Clarify behavior with lack of v4/v6 hints",
+      "url": "https://github.com/ietf-wg-add/draft-ietf-add-ddr/issues/2",
+      "state": "OPEN",
+      "author": "tfpauly",
+      "authorAssociation": "NONE",
+      "assignees": [
+        "mstojens"
+      ],
+      "labels": [],
+      "body": "From Eliot Lear:\r\n\r\nThe draft currently reads:\r\n\r\n When responding to these special queries for\r\n   \"dns://resolver.arpa\", the SVCB records SHOULD contain at least one\r\n   \"ipv4hint\" and/or \"ipv6hint\" keys. \r\n\r\nWhat happens when neither hint is present?  The client should just query the local infrastructure, right?  You almost say that, but not quite.",
+      "createdAt": "2021-02-17T15:36:08Z",
+      "updatedAt": "2021-02-17T15:36:08Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 3,
+      "id": "MDU6SXNzdWU4MTAyOTMwMTE=",
+      "title": "DDR section 4.1",
+      "url": "https://github.com/ietf-wg-add/draft-ietf-add-ddr/issues/3",
+      "state": "OPEN",
+      "author": "tfpauly",
+      "authorAssociation": "NONE",
+      "assignees": [
+        "mstojens"
+      ],
+      "labels": [],
+      "body": "From Eliot Lear:\r\n\r\nCan you explain the following statement?\r\n\r\nand that IP address is a private address\r\n   (such as those defined in [RFC1918]\r\n\r\nI ask because it appears that you are using private addresses as some sort of security property.  I recommend against that, not least of which is that end systems that are likely to deploy this stuff will have a wide ranging mishmosh of addressing plans, and of course, private network addresses don\u2019t really have any positive security properties to speak of.\r\n\r\nThe only aspect I can see is that one really has to be quite careful of including private network addresses in certificates.  Of course, public trust anchors won\u2019t allow it, but even private ones will have some difficulty.  Your average bank might have multiple overlapping zones of trust - it\u2019s a pretty hairy scene.\r\n",
+      "createdAt": "2021-02-17T15:36:34Z",
+      "updatedAt": "2021-02-17T15:36:34Z",
+      "closedAt": null,
+      "comments": []
+    }
+  ],
   "pulls": [
     {
       "number": 1,
