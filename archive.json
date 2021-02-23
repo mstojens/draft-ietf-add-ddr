@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2021-02-18T00:04:04.825176+00:00",
+  "timestamp": "2021-02-23T00:04:00.321542+00:00",
   "repo": "ietf-wg-add/draft-ietf-add-ddr",
   "labels": [
     {
@@ -85,6 +85,236 @@
       "updatedAt": "2021-02-17T15:36:34Z",
       "closedAt": null,
       "comments": []
+    },
+    {
+      "number": 4,
+      "id": "MDU6SXNzdWU4MTM4Nzk1NTg=",
+      "title": "Reference threat model",
+      "url": "https://github.com/ietf-wg-add/draft-ietf-add-ddr/issues/4",
+      "state": "OPEN",
+      "author": "mstojens",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Copied conversation below from https://github.com/tfpauly/draft-pauly-adaptive-dns-privacy/issues/143",
+      "createdAt": "2021-02-22T21:29:27Z",
+      "updatedAt": "2021-02-22T21:32:42Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "mstojens",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "## tfpauly said...\r\n\r\nA. Security design\r\n\r\n> \"In order to be considered an authenticated Equivalent Encrypted Resolver, the TLS certificate presented by the Encrypted Resolver MUST contain both the domain name (from the SVCB answer) and the IP address of its equivalent Unencrypted Resolver\"\r\n\r\nRequiring the certificate to cover the TargetName is unusual. Why does it help for the certificate to contain this domain name, if it is also required to authenticate or match the DNS server IP? Is a nontrivial TargetName always required?\r\n\r\n> \"An attacker might try to direct Encrypted DNS traffic to itself by causing the client to think that a discovered Equivalent Encrypted Resolver uses a different IP address from the Unencrypted Resolver.\"\r\n\r\nIt seems like you are contemplating an attacker who controls the DNS path but not the RA/DHCP path. I'd appreciate seeing a few more words on that beyond the current reference to RA protection.\r\n\r\nIn general, some text on threat modeling might help to justify the design decisions.",
+          "createdAt": "2021-02-22T21:30:22Z",
+          "updatedAt": "2021-02-22T21:30:22Z"
+        },
+        {
+          "author": "mstojens",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "## tfpauly said...\r\n\r\nPartly, I\u2019m imagining we can rely on or take some of the threat modeling text from the requirements document here. However, I agree that that should be referenced or included.",
+          "createdAt": "2021-02-22T21:30:39Z",
+          "updatedAt": "2021-02-22T21:30:39Z"
+        },
+        {
+          "author": "mstojens",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "## martinthomson said...\r\n\r\nI think that for equivalence, it is sufficient to include just the ipAddress SAN. Clients have to have a single target identity to match, or it gets a little tricky.\r\n\r\nThis assumes that the provenance of the IP is somehow not subject to attack. This includes DHCP/RA, manual configuration, and other forms of configuration like enterprise policy systems.\r\n\r\nBut it's not really that. This isn't about establishing whether the IP address is the right one, it's about saying affirmatively that this is the same as this other thing. For that, you don't need to worry about where the IP address came from. Of course, this is a stronger assertion regarding the DoT/DoH server than you can make about the Do53 server. The former is authenticated; the latter relies on the integrity of the route.",
+          "createdAt": "2021-02-22T21:31:24Z",
+          "updatedAt": "2021-02-22T21:31:24Z"
+        },
+        {
+          "author": "mstojens",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "## vparla said...\r\n\r\nOne question I have is the embedding of IP addresses in certificates at all. In a world of migrating workloads on generic compute, it is not unreasonable to expect that DoH servers might not occupy a fixed IP address necessarily. While it can be accomplished with Anycast addressing, NATing or Loadbalancing schemes, I still have some reservations about the construct in general. Maybe I am missing something obvious here.",
+          "createdAt": "2021-02-22T21:31:40Z",
+          "updatedAt": "2021-02-22T21:31:52Z"
+        },
+        {
+          "author": "mstojens",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "## bemasc issued a PR\r\n\r\nhttps://github.com/tfpauly/draft-pauly-adaptive-dns-privacy/pull/147",
+          "createdAt": "2021-02-22T21:32:41Z",
+          "updatedAt": "2021-02-22T21:32:41Z"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "id": "MDU6SXNzdWU4MTM4ODMxMTk=",
+      "title": "Clarify use of address hints",
+      "url": "https://github.com/ietf-wg-add/draft-ietf-add-ddr/issues/5",
+      "state": "OPEN",
+      "author": "mstojens",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Migrated from original DEER issue: https://github.com/tfpauly/draft-pauly-adaptive-dns-privacy/issues/145",
+      "createdAt": "2021-02-22T21:34:45Z",
+      "updatedAt": "2021-02-22T21:35:27Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "mstojens",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "## tfpauly said...\r\n\r\nFrom Ben:\r\n\r\n> \"These address hints ... avoid additional DNS lookup for the A and AAAA records of the Encrypted Resolver name.\"\r\n\r\nStrictly speaking, a compliant SVCB client is expected to perform the additional lookups anyway. The hints just avoid a delay while those queries complete. If you think it's important to \"skip\" those followup queries, we would have to make a deeper change. Otherwise, you could say \"avoid waiting for DNS lookup...\".",
+          "createdAt": "2021-02-22T21:35:14Z",
+          "updatedAt": "2021-02-22T21:35:14Z"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "id": "MDU6SXNzdWU4MTM4ODQxNTQ=",
+      "title": "DEER caching text",
+      "url": "https://github.com/ietf-wg-add/draft-ietf-add-ddr/issues/6",
+      "state": "OPEN",
+      "author": "mstojens",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Migrated from original DEER issue: https://github.com/tfpauly/draft-pauly-adaptive-dns-privacy/issues/155",
+      "createdAt": "2021-02-22T21:36:23Z",
+      "updatedAt": "2021-02-22T21:36:56Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "mstojens",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "## bemasc said...\r\n\r\nThe text says\r\n\r\n> If a caching forwarder consults multiple resolvers, it may be possible for it to cache records for the \"resolver.arpa\" Special Use Domain Name (SUDN) for multiple resolvers.\r\n\r\nThis is not true of any reasonable forwarder. RRsets are atomic collections, and cannot be mixed from multiple sources. Doing so would entirely break DNSSEC, for example. Unless you know of a forwarder that exhibits this seriously broken behavior, I don't think it bears mentioning.",
+          "createdAt": "2021-02-22T21:36:56Z",
+          "updatedAt": "2021-02-22T21:36:56Z"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "id": "MDU6SXNzdWU4MTM4ODYwODE=",
+      "title": "Clarification of SUDN",
+      "url": "https://github.com/ietf-wg-add/draft-ietf-add-ddr/issues/7",
+      "state": "OPEN",
+      "author": "mstojens",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [
+        "mstojens"
+      ],
+      "labels": [],
+      "body": "Migrated from original DEER issue: https://github.com/tfpauly/draft-pauly-adaptive-dns-privacy/issues/160",
+      "createdAt": "2021-02-22T21:38:23Z",
+      "updatedAt": "2021-02-22T21:40:37Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "mstojens",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "## awfulhak said...\r\n\r\nThe Special Use Domain Name (SUDN) resolver.arpa needs more clarification. Specifically:\r\n\r\n- Queries against the .arpa nameservers\r\n  The draft should mention that .arpa is a delegated zone, currently served by the root nameservers. Clients that query a resolver that is unaware of this requirement will \"leak\" queries to the root nameservers.\r\n- When _dns.resolver.arpa/SVCB is not present in a resolver configuration\r\n  Section 6.1 discusses how a forwarder should behave and suggests that results should not be cached other than for Equivalent Encrypted Resolvers under their control. How is that determined?\r\n  There is no discussion around a non-forwarding resolver's behaviour. Should it return NODATA?\r\n  Forwarding queries to _dns.resolver.arpa/SVCB will attempt to attach a client to an upstream resource's equivalent resolver. If that equivalent resolver's cert doesn't include the forwarder, the client must reject the answer. Is it not therefore the case that the forwarder caching behaviour is irrelevant? All valid responses to this query must be equivalent to the forwarder itself.\r\n- When _dns.resolver.arpa/SVCB is present in a resolver configuration\r\n  I would suggest some clarification wording something like this: The expectation is that this record set will detail equivalent resolvers. A client that chooses not to interact with any of these equivalent resolvers SHOULD continue to use the unencrypted resolver, honouring the SVCB TTL. When the SVCB TTL expires, the client may choose to re-query in an attempt to discover newly available equivalents.\r\n\r\nI would suggest (prefer?) changing the SUDN behaviour so that queries against it are never sent upstream. Resolvers (and forwarders) that do not have a configured _dns.resolver.arpa/SVCB RRset should return NODATA. This would mean that resolver.arpa SUDN RRsets are always specific to the IP queried.",
+          "createdAt": "2021-02-22T21:40:06Z",
+          "updatedAt": "2021-02-22T21:40:06Z"
+        },
+        {
+          "author": "mstojens",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "## tfpauly said...\r\n\r\nIt may be good to model the advice after RFC8880, which defines ipv4only.arpa.",
+          "createdAt": "2021-02-22T21:40:33Z",
+          "updatedAt": "2021-02-22T21:40:33Z"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "id": "MDU6SXNzdWU4MTM4ODgzOTk=",
+      "title": "Clarification of expectations in certain NAT environments",
+      "url": "https://github.com/ietf-wg-add/draft-ietf-add-ddr/issues/8",
+      "state": "OPEN",
+      "author": "mstojens",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Issue migrated from DEER repo: https://github.com/tfpauly/draft-pauly-adaptive-dns-privacy/issues/161",
+      "createdAt": "2021-02-22T21:42:15Z",
+      "updatedAt": "2021-02-22T21:44:16Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "mstojens",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "## vparla said...\r\n\r\nIt would be helpful if there was a paragraph that described what the expected behavior is in certain NAT scenarios.\r\n\r\nSince the IP address must be embedded in the TLS certificate, certain NAT scenarios could present a problem for this approach.\r\n\r\nFor example, if the assigned DNS IP addresses via DHCP are not the actual IP address(es) associated with the DNS service, there could be an issue. How would such a deployment scenario be addressed?",
+          "createdAt": "2021-02-22T21:42:29Z",
+          "updatedAt": "2021-02-22T21:42:29Z"
+        },
+        {
+          "author": "mstojens",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "## tfpauly said...\r\n\r\nCertainly worth a paragraph or note.\r\n\r\n@vparla can you clarify exactly which NAT scenarios you're considering here? If the client is behind a NAT reaching out to a DNS resolver that is not behind the NAT, the client presumably is reaching out to the \"real\" IP address of the resolver. If the resolver is behind the NAT with the client, then that seems to be a case in which we'd expect it to simply have the same address as the unencrypted resolver?",
+          "createdAt": "2021-02-22T21:42:48Z",
+          "updatedAt": "2021-02-22T21:42:48Z"
+        },
+        {
+          "author": "mstojens",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "## vparla said...\r\n\r\n@tfpauly.\r\nSo if the DHCP assigned DNS address(es) are NAT addresses instead of the actual DNS server addresses, what is the expected outcome? It was unclear to me if this would work correctly as the client would see the NAT'd address(es) via DHCP and the certificate would hold the actual address(es), not the NAT'd address seen via DHCP.\r\n\r\nSo imagine NAT assigned address is 1.2.3.4 and actual address of DNS server is 4.5.6.7. What would be the expected outcome here? DNS from the client would got to 1.2.3.4:53 then be NAT'd to actual DNS server @ 4.5.6.7:53\r\n\r\nNote this is an edge case for the most part, but possible.",
+          "createdAt": "2021-02-22T21:43:10Z",
+          "updatedAt": "2021-02-22T21:43:10Z"
+        },
+        {
+          "author": "mstojens",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "## bemasc said...\r\n\r\n@vparla It sounds like you're describing a classic \"DNS forwarder\". I don't think this matches typical usage of \"NAT\", which does not modify the server IP as observed by the client.",
+          "createdAt": "2021-02-22T21:43:25Z",
+          "updatedAt": "2021-02-22T21:43:25Z"
+        },
+        {
+          "author": "mstojens",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "## vparla said...\r\n\r\nFor the sake of this discussion, a DNS forwarder and a NAT can be viewed as roughly equivalent for this problem.\r\nClient assigned DNS server address is 1.2.3.4 and as such sends DNS to 1.2.3.4:53. The actual DNS Server is 4.5.6.7 and the IP in the certificate are also 4.5.6.7",
+          "createdAt": "2021-02-22T21:43:43Z",
+          "updatedAt": "2021-02-22T21:43:43Z"
+        },
+        {
+          "author": "mstojens",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "## bemasc said...\r\n\r\nThis situation would not occur when using \"NAT\" according to the definition that I'm used to, but it is an important scenario to consider.\r\n\r\nThe current draft essentially rules this \"out of scope\". As you observed, the upgrade will not occur in this configuration.\r\n\r\nI have posted a (rather invasive) PR that would put this in-scope, with various safeguards to prevent unauthorized redirection: #147.",
+          "createdAt": "2021-02-22T21:44:01Z",
+          "updatedAt": "2021-02-22T21:44:01Z"
+        },
+        {
+          "author": "mstojens",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "## vparla said...\r\n\r\nI am happy with it just being clearly articulated in terms of the scenario and the outcome.\r\nthanks for looking at it.",
+          "createdAt": "2021-02-22T21:44:16Z",
+          "updatedAt": "2021-02-22T21:44:16Z"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "id": "MDU6SXNzdWU4MTM4OTAzNTk=",
+      "title": "Clarification on Opportunistic with respect to dns://resolver.arpa",
+      "url": "https://github.com/ietf-wg-add/draft-ietf-add-ddr/issues/9",
+      "state": "OPEN",
+      "author": "mstojens",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Issue migrated from DEER repo: https://github.com/tfpauly/draft-pauly-adaptive-dns-privacy/issues/163",
+      "createdAt": "2021-02-22T21:45:27Z",
+      "updatedAt": "2021-02-22T21:45:56Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "mstojens",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "## magicalo said...\r\n\r\nCan you clarify why dns://resolver.arpa would matter in an Opportunistic scenario, or at least in a subset of Opportunistic options.\r\n\r\nCouldn't a DNS client simply attempt DoH on the same IP address(es) as Do53 (ideally in parallel)\r\nand if the certificate returned during the DoH exchanges meets the criteria (matching IPs listed in the SAN, cert validation, etc.) then it would simply attempt the upgrade, never having to consider/engage dns://resolver.arpa\r\n\r\nMaybe I have misunderstood this section or the role dns://resolver.arpa would play here. Could you clarify please.",
+          "createdAt": "2021-02-22T21:45:42Z",
+          "updatedAt": "2021-02-22T21:45:42Z"
+        },
+        {
+          "author": "mstojens",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "## tfpauly said...\r\n\r\nThe purpose of the SVCB record information in the \"opportunistic\" scenario is getting extra metadata about the resolvers. This is particularly important or useful for DoH, where the URI path and HTTP authority would not otherwise be known. The client could guess, but it may not be able to form a valid HTTP request.\r\n\r\nThe DoT ports, etc, could also be different, but that's often less useful.",
+          "createdAt": "2021-02-22T21:45:56Z",
+          "updatedAt": "2021-02-22T21:45:56Z"
+        }
+      ]
     }
   ],
   "pulls": [
