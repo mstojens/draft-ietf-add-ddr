@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2021-02-23T00:04:00.321542+00:00",
+  "timestamp": "2021-02-25T00:03:41.926998+00:00",
   "repo": "ietf-wg-add/draft-ietf-add-ddr",
   "labels": [
     {
@@ -64,9 +64,17 @@
       "labels": [],
       "body": "From Eliot Lear:\r\n\r\nThe draft currently reads:\r\n\r\n When responding to these special queries for\r\n   \"dns://resolver.arpa\", the SVCB records SHOULD contain at least one\r\n   \"ipv4hint\" and/or \"ipv6hint\" keys. \r\n\r\nWhat happens when neither hint is present?  The client should just query the local infrastructure, right?  You almost say that, but not quite.",
       "createdAt": "2021-02-17T15:36:08Z",
-      "updatedAt": "2021-02-17T15:36:08Z",
+      "updatedAt": "2021-02-23T17:50:23Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "mstojens",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "This is an interesting case. There are threat model implications to always querying the template name elsewhere. \r\n\r\nI will draft up something to address that includes a commentary on the implications for the client.",
+          "createdAt": "2021-02-23T17:50:23Z",
+          "updatedAt": "2021-02-23T17:50:23Z"
+        }
+      ]
     },
     {
       "number": 3,
@@ -82,9 +90,17 @@
       "labels": [],
       "body": "From Eliot Lear:\r\n\r\nCan you explain the following statement?\r\n\r\nand that IP address is a private address\r\n   (such as those defined in [RFC1918]\r\n\r\nI ask because it appears that you are using private addresses as some sort of security property.  I recommend against that, not least of which is that end systems that are likely to deploy this stuff will have a wide ranging mishmosh of addressing plans, and of course, private network addresses don\u2019t really have any positive security properties to speak of.\r\n\r\nThe only aspect I can see is that one really has to be quite careful of including private network addresses in certificates.  Of course, public trust anchors won\u2019t allow it, but even private ones will have some difficulty.  Your average bank might have multiple overlapping zones of trust - it\u2019s a pretty hairy scene.\r\n",
       "createdAt": "2021-02-17T15:36:34Z",
-      "updatedAt": "2021-02-17T15:36:34Z",
+      "updatedAt": "2021-02-23T17:59:00Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "mstojens",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "The intent of that section is to say that \"if you were going to send this local IP address unencrypted traffic anyway, using encryption to that same IP address is a net improvement to the threat model.\" It certainly was not meant to imply that private addresses could be verified via the TLS cert SAN mechanism used for public addresses.\r\n\r\nI can try to rephrase this section to be more accurate. Please comment again if I missed the point.",
+          "createdAt": "2021-02-23T17:59:00Z",
+          "updatedAt": "2021-02-23T17:59:00Z"
+        }
+      ]
     },
     {
       "number": 4,
