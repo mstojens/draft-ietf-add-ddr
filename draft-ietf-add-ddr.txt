@@ -5,17 +5,17 @@
 ADD                                                             T. Pauly
 Internet-Draft                                                E. Kinnear
 Intended status: Standards Track                              Apple Inc.
-Expires: 16 August 2021                                        C.A. Wood
+Expires: 6 September 2021                                      C.A. Wood
                                                               Cloudflare
                                                               P. McManus
                                                                   Fastly
                                                                T. Jensen
                                                                Microsoft
-                                                        12 February 2021
+                                                            5 March 2021
 
 
                    Discovery of Designated Resolvers
-                         draft-ietf-add-ddr-00
+                       draft-ietf-add-ddr-latest
 
 Abstract
 
@@ -51,7 +51,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 16 August 2021.
+   This Internet-Draft will expire on 6 September 2021.
 
 Copyright Notice
 
@@ -368,36 +368,38 @@ Table of Contents
               Schwartz, B., Bishop, M., and E. Nygren, "Service binding
               and parameter specification via the DNS (DNS SVCB and
               HTTPS RRs)", Work in Progress, Internet-Draft, draft-ietf-
-              dnsop-svcb-https-02, 2 November 2020,
-              <http://www.ietf.org/internet-drafts/draft-ietf-dnsop-
-              svcb-https-02.txt>.
+              dnsop-svcb-https-03, 17 February 2021,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-dnsop-
+              svcb-https-03.txt>.
 
    [I-D.ietf-tls-esni]
-              Rescorla, E., Oku, K., Sullivan, N., and C. Wood, "TLS
+              Rescorla, E., Oku, K., Sullivan, N., and C. A. Wood, "TLS
               Encrypted Client Hello", Work in Progress, Internet-Draft,
               draft-ietf-tls-esni-09, 16 December 2020,
-              <http://www.ietf.org/internet-drafts/draft-ietf-tls-esni-
-              09.txt>.
+              <https://datatracker.ietf.org/doc/html/draft-ietf-tls-
+              esni-09.txt>.
 
    [I-D.schwartz-svcb-dns]
               Schwartz, B., "Service Binding Mapping for DNS Servers",
               Work in Progress, Internet-Draft, draft-schwartz-svcb-dns-
-              01, 10 August 2020, <http://www.ietf.org/internet-drafts/
-              draft-schwartz-svcb-dns-01.txt>.
+              02, 17 February 2021,
+              <https://datatracker.ietf.org/doc/html/draft-schwartz-
+              svcb-dns-02.txt>.
 
    [RFC1918]  Rekhter, Y., Moskowitz, B., Karrenberg, D., de Groot, G.
               J., and E. Lear, "Address Allocation for Private
               Internets", BCP 5, RFC 1918, DOI 10.17487/RFC1918,
-              February 1996, <https://www.rfc-editor.org/info/rfc1918>.
+              February 1996,
+              <https://datatracker.ietf.org/doc/html/rfc1918>.
 
    [RFC7858]  Hu, Z., Zhu, L., Heidemann, J., Mankin, A., Wessels, D.,
               and P. Hoffman, "Specification for DNS over Transport
               Layer Security (TLS)", RFC 7858, DOI 10.17487/RFC7858, May
-              2016, <https://www.rfc-editor.org/info/rfc7858>.
+              2016, <https://datatracker.ietf.org/doc/html/rfc7858>.
 
    [RFC8484]  Hoffman, P. and P. McManus, "DNS Queries over HTTPS
               (DoH)", RFC 8484, DOI 10.17487/RFC8484, October 2018,
-              <https://www.rfc-editor.org/info/rfc8484>.
+              <https://datatracker.ietf.org/doc/html/rfc8484>.
 
 9.2.  Informative References
 
@@ -405,36 +407,36 @@ Table of Contents
               Schinazi, D., Sullivan, N., and J. Kipp, "DoH Preference
               Hints for HTTP", Work in Progress, Internet-Draft, draft-
               schinazi-httpbis-doh-preference-hints-02, 13 July 2020,
-              <http://www.ietf.org/internet-drafts/draft-schinazi-
+              <https://datatracker.ietf.org/doc/html/draft-schinazi-
               httpbis-doh-preference-hints-02.txt>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
               DOI 10.17487/RFC2119, March 1997,
-              <https://www.rfc-editor.org/info/rfc2119>.
+              <https://datatracker.ietf.org/doc/html/rfc2119>.
 
    [RFC2132]  Alexander, S. and R. Droms, "DHCP Options and BOOTP Vendor
               Extensions", RFC 2132, DOI 10.17487/RFC2132, March 1997,
-              <https://www.rfc-editor.org/info/rfc2132>.
+              <https://datatracker.ietf.org/doc/html/rfc2132>.
 
    [RFC5507]  IAB, Faltstrom, P., Ed., Austein, R., Ed., and P. Koch,
               Ed., "Design Choices When Expanding the DNS", RFC 5507,
               DOI 10.17487/RFC5507, April 2009,
-              <https://www.rfc-editor.org/info/rfc5507>.
+              <https://datatracker.ietf.org/doc/html/rfc5507>.
 
    [RFC6105]  Levy-Abegnoli, E., Van de Velde, G., Popoviciu, C., and J.
               Mohacsi, "IPv6 Router Advertisement Guard", RFC 6105,
               DOI 10.17487/RFC6105, February 2011,
-              <https://www.rfc-editor.org/info/rfc6105>.
+              <https://datatracker.ietf.org/doc/html/rfc6105>.
 
    [RFC8106]  Jeong, J., Park, S., Beloeil, L., and S. Madanapalli,
               "IPv6 Router Advertisement Options for DNS Configuration",
               RFC 8106, DOI 10.17487/RFC8106, March 2017,
-              <https://www.rfc-editor.org/info/rfc8106>.
+              <https://datatracker.ietf.org/doc/html/rfc8106>.
 
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
-              May 2017, <https://www.rfc-editor.org/info/rfc8174>.
+              May 2017, <https://datatracker.ietf.org/doc/html/rfc8174>.
 
 Appendix A.  Rationale for using SVCB records
 
