@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2021-02-25T00:03:41.926998+00:00",
+  "timestamp": "2021-03-11T00:03:51.623439+00:00",
   "repo": "ietf-wg-add/draft-ietf-add-ddr",
   "labels": [
     {
@@ -331,6 +331,22 @@
           "updatedAt": "2021-02-22T21:45:56Z"
         }
       ]
+    },
+    {
+      "number": 10,
+      "id": "MDU6SXNzdWU4MjYxMTA0ODU=",
+      "title": "minor: provide ipv6hint in examples",
+      "url": "https://github.com/ietf-wg-add/draft-ietf-add-ddr/issues/10",
+      "state": "OPEN",
+      "author": "enygren",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "We should make sure that any examples including an ipv4hint\r\nalso include an ipv6hint or only include an ipv6hint.\r\n\r\n(per https://www.iab.org/2016/11/07/iab-statement-on-ipv6/)",
+      "createdAt": "2021-03-09T15:31:34Z",
+      "updatedAt": "2021-03-09T15:31:34Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -369,6 +385,83 @@
         }
       ],
       "reviews": []
+    },
+    {
+      "number": 11,
+      "id": "MDExOlB1bGxSZXF1ZXN0NTg4NjAwODk3",
+      "title": "Proposal: Enable secure cross-IP upgrade",
+      "url": "https://github.com/ietf-wg-add/draft-ietf-add-ddr/pull/11",
+      "state": "OPEN",
+      "author": "bemasc",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "This proposal adjusts various aspects of the security model to enable secure upgrade from traditional local DNS forwarding equipment.\r\n\r\nIncludes CNAME idea borrowed from https://tools.ietf.org/html/draft-rescorla-doh-cdisco-00\r\n\r\nSee https://github.com/tfpauly/draft-pauly-adaptive-dns-privacy/pull/147 for the original version and comments.",
+      "createdAt": "2021-03-09T20:48:29Z",
+      "updatedAt": "2021-03-10T15:20:42Z",
+      "baseRepository": "ietf-wg-add/draft-ietf-add-ddr",
+      "baseRefName": "main",
+      "baseRefOid": "ca3ed153f4bf3b083746d23e97b34b889eb86167",
+      "headRepository": "bemasc/draft-ietf-add-ddr",
+      "headRefName": "bemasc-local-upgrade",
+      "headRefOid": "83cf989c2a00308f2fefd4e57911d7e026a6ea81",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjA4ODAwMjIz",
+          "commit": {
+            "abbreviatedOid": "83cf989"
+          },
+          "author": "martinthomson",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-10T14:51:51Z",
+          "updatedAt": "2021-03-10T15:20:42Z",
+          "comments": [
+            {
+              "originalPosition": 42,
+              "body": "This seems overly prescriptive.  A recommendation to ues 5min is fine, but a requirement is too strong for me.  A device with a long history of successful use of that address might be willing to tolerate longer.",
+              "createdAt": "2021-03-10T14:51:51Z",
+              "updatedAt": "2021-03-10T15:20:42Z"
+            },
+            {
+              "originalPosition": 59,
+              "body": "Would SVCB AliasMode record be an acceptable substitute for this?",
+              "createdAt": "2021-03-10T14:52:45Z",
+              "updatedAt": "2021-03-10T15:20:42Z"
+            },
+            {
+              "originalPosition": 67,
+              "body": "```suggestion\r\nprevent this kind of discovery can intercept queries to `_dns.resolver.arpa`.\r\n```\r\nNot a constraint on behaviour that affects others.",
+              "createdAt": "2021-03-10T14:55:01Z",
+              "updatedAt": "2021-03-10T15:20:42Z"
+            },
+            {
+              "originalPosition": 123,
+              "body": "```suggestion\r\nSince clients can receive DNS SVCB answers over unencrypted DNS, on-path\r\n```",
+              "createdAt": "2021-03-10T14:59:18Z",
+              "updatedAt": "2021-03-10T15:20:42Z"
+            },
+            {
+              "originalPosition": 128,
+              "body": "Does this mean that a DNSSEC signed record at _dns.$HOSTNAME is a pin in some circumstances?  That is, for the duration of its TTL, if the server is not available, clients might not be able to access DNS service.",
+              "createdAt": "2021-03-10T15:01:29Z",
+              "updatedAt": "2021-03-10T15:20:42Z"
+            },
+            {
+              "originalPosition": 4,
+              "body": "This needs a strong definition for \"public range\", citing the v6 addressing architecture or whatever else applies.",
+              "createdAt": "2021-03-10T15:02:50Z",
+              "updatedAt": "2021-03-10T15:20:42Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
