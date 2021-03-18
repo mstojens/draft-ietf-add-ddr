@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2021-03-14T00:04:07.577834+00:00",
+  "timestamp": "2021-03-18T00:04:04.915390+00:00",
   "repo": "ietf-wg-add/draft-ietf-add-ddr",
   "labels": [
     {
@@ -398,13 +398,13 @@
       "labels": [],
       "body": "This proposal adjusts various aspects of the security model to enable secure upgrade from traditional local DNS forwarding equipment.\r\n\r\nIncludes CNAME idea borrowed from https://tools.ietf.org/html/draft-rescorla-doh-cdisco-00\r\n\r\nSee https://github.com/tfpauly/draft-pauly-adaptive-dns-privacy/pull/147 for the original version and comments.",
       "createdAt": "2021-03-09T20:48:29Z",
-      "updatedAt": "2021-03-11T15:36:06Z",
+      "updatedAt": "2021-03-16T17:44:31Z",
       "baseRepository": "ietf-wg-add/draft-ietf-add-ddr",
       "baseRefName": "main",
       "baseRefOid": "ca3ed153f4bf3b083746d23e97b34b889eb86167",
       "headRepository": "bemasc/draft-ietf-add-ddr",
       "headRefName": "bemasc-local-upgrade",
-      "headRefOid": "fdb38f5fbf2a08eea8a3ad1ec3e16b00d4aa4eba",
+      "headRefOid": "57133b27d16aeec8aa6f28818673f0b2e52296de",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -435,37 +435,37 @@
               "originalPosition": 42,
               "body": "This seems overly prescriptive.  A recommendation to ues 5min is fine, but a requirement is too strong for me.  A device with a long history of successful use of that address might be willing to tolerate longer.",
               "createdAt": "2021-03-10T14:51:51Z",
-              "updatedAt": "2021-03-11T14:58:57Z"
+              "updatedAt": "2021-03-16T17:44:31Z"
             },
             {
               "originalPosition": 59,
               "body": "Would SVCB AliasMode record be an acceptable substitute for this?",
               "createdAt": "2021-03-10T14:52:45Z",
-              "updatedAt": "2021-03-11T14:58:57Z"
+              "updatedAt": "2021-03-16T17:44:31Z"
             },
             {
               "originalPosition": 67,
               "body": "```suggestion\r\nprevent this kind of discovery can intercept queries to `_dns.resolver.arpa`.\r\n```\r\nNot a constraint on behaviour that affects others.",
               "createdAt": "2021-03-10T14:55:01Z",
-              "updatedAt": "2021-03-11T14:58:57Z"
+              "updatedAt": "2021-03-16T17:44:31Z"
             },
             {
               "originalPosition": 123,
               "body": "```suggestion\r\nSince clients can receive DNS SVCB answers over unencrypted DNS, on-path\r\n```",
               "createdAt": "2021-03-10T14:59:18Z",
-              "updatedAt": "2021-03-11T14:58:57Z"
+              "updatedAt": "2021-03-16T17:44:31Z"
             },
             {
               "originalPosition": 128,
               "body": "Does this mean that a DNSSEC signed record at _dns.$HOSTNAME is a pin in some circumstances?  That is, for the duration of its TTL, if the server is not available, clients might not be able to access DNS service.",
               "createdAt": "2021-03-10T15:01:29Z",
-              "updatedAt": "2021-03-11T14:58:57Z"
+              "updatedAt": "2021-03-16T17:44:31Z"
             },
             {
               "originalPosition": 4,
               "body": "This needs a strong definition for \"public range\", citing the v6 addressing architecture or whatever else applies.",
               "createdAt": "2021-03-10T15:02:50Z",
-              "updatedAt": "2021-03-11T14:58:57Z"
+              "updatedAt": "2021-03-16T17:44:31Z"
             }
           ]
         },
@@ -485,25 +485,25 @@
               "originalPosition": 4,
               "body": "Done",
               "createdAt": "2021-03-11T01:57:16Z",
-              "updatedAt": "2021-03-11T14:58:57Z"
+              "updatedAt": "2021-03-16T17:44:31Z"
             },
             {
               "originalPosition": 42,
               "body": "OK.  I'm not sure what rule we're aiming for here, but I've adjusted all the normativity so that MUST-level requirements are only used where needed for compatibility, or for security if the harm is to another party.",
               "createdAt": "2021-03-11T01:58:35Z",
-              "updatedAt": "2021-03-11T14:58:57Z"
+              "updatedAt": "2021-03-16T17:44:31Z"
             },
             {
               "originalPosition": 59,
               "body": "Sort of.  AliasMode records would work but\r\n1. They wouldn't be any better.\r\n2. They would be slower to fetch on existing resolvers.\r\n3. They would break the partial getaddrinfo compatibility.\r\n\r\nThat seemed like a good enough reason to mandate CNAME.",
               "createdAt": "2021-03-11T02:00:25Z",
-              "updatedAt": "2021-03-11T14:58:57Z"
+              "updatedAt": "2021-03-16T17:44:31Z"
             },
             {
               "originalPosition": 128,
               "body": "As [currently specified](https://datatracker.ietf.org/doc/html/draft-schwartz-svcb-dns-02#section-9.2), it's a pin even if not DNSSEC signed.  The theory here is that, even without DNSSEC, you could easily have an adversary who can block your DoT connection but not your bootstrap queries.  You wouldn't want that adversary to cause an automatic fallback to plaintext DNS.",
               "createdAt": "2021-03-11T02:03:57Z",
-              "updatedAt": "2021-03-11T14:58:57Z"
+              "updatedAt": "2021-03-16T17:44:31Z"
             }
           ]
         },
@@ -523,7 +523,7 @@
               "originalPosition": 42,
               "body": "I think that you are right about the use of MUST.  What I wanted to highlight here was that a specific maximum here needs to be better supported to be strictly mandatory.",
               "createdAt": "2021-03-11T02:31:39Z",
-              "updatedAt": "2021-03-11T14:58:57Z"
+              "updatedAt": "2021-03-16T17:44:31Z"
             }
           ]
         },
@@ -543,7 +543,7 @@
               "originalPosition": 55,
               "body": "What if there is a network outage where packets are dropped? I'm concerned that there could be a transient state, unlucky or induced by an attacker flooding the network, where the client ends up being downgraded after previously having been secure.",
               "createdAt": "2021-03-11T13:26:57Z",
-              "updatedAt": "2021-03-11T14:58:57Z"
+              "updatedAt": "2021-03-16T17:44:31Z"
             }
           ]
         },
@@ -563,7 +563,27 @@
               "originalPosition": 55,
               "body": "This is a general concern in either mode.  I've clarified that the discovery process blocks other queries.  Note that this makes the draft sharply incompatible with (hypothetical, horribly broken) SVCB blackhole resolvers.  I'm fine with that.  (Implementers can add an escape hatch if it proves necessary.)\r\n\r\nI also added an exemption under \"Optimizations\" for the case where the client happens to recognize and trust the discovered Encrypted Resolver.",
               "createdAt": "2021-03-11T14:53:41Z",
-              "updatedAt": "2021-03-11T14:58:57Z"
+              "updatedAt": "2021-03-16T17:44:31Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjEzNTM1NDA2",
+          "commit": {
+            "abbreviatedOid": "fdb38f5"
+          },
+          "author": "chris-box",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-16T17:30:26Z",
+          "updatedAt": "2021-03-16T17:30:26Z",
+          "comments": [
+            {
+              "originalPosition": 68,
+              "body": "Rather than asking clients to repeat the discovery process, it would seem better to ask them to limit the validity of the referral. I'm trying here to avoid idle clients (like a phone with the screen off) generating unnecessary queries and draining battery. An idle device could then choose to let the referral expire, and defer the rediscovery to the time when it becomes active again.\r\n```suggestion\r\n\r\nThe client SHOULD limit the validity of the discovered information (e.g. by\r\nlimiting the SVCB response TTL) to no more than 5 minutes, and MUST stop\r\nusing any Encrypted Resolver that is no longer designated. {{Optimizations}}\r\ndescribes how to avoid periods of unencrypted resolution that could result\r\nfrom this.\r\n\r\n```",
+              "createdAt": "2021-03-16T17:30:26Z",
+              "updatedAt": "2021-03-16T17:44:31Z"
             }
           ]
         }
